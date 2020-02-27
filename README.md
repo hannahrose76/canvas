@@ -1,2 +1,7 @@
 "# canvas" 
-We're doing buildings
+We're creating:
+A building,
+Trees,
+A road,
+People,
+a sun
