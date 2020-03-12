@@ -2,8 +2,116 @@
   <head>
     <title> Canvas </title>
   </head>
-  
-  <body>
 
+  <body>
+    <canvas id="canvas" width="600" height="600">
+      <style>
+        canvas {
+          border: 1px solid red;
+          z-index: 1;
+        }
+      </style>
+      <script>
+        let name = "canvas"
+        skybackground(name);
+        building(name);
+        man(name,-8,-5);
+        man(name,6.5,-5);
+        man(name,11,-5);
+
+
+        function building(canvasN){
+          function window(canvasN, x, y){
+            let can = document.getElementById(canvasN);
+            let windows = can.getContext("2d");
+
+            let cenW=(can.width/2);
+            let cenH=(can.height/2);
+
+            windows.fillStyle = "lightblue";
+            windows.fillRect((cenW/16)*(10+x), (cenH/16)*(3+y), (cenW/16), (cenH/16));
+          }
+
+          let can = document.getElementById(canvasN);
+          let buildingbox = can.getContext("2d");
+
+          let cenW=(can.width/2);
+          let cenH=(can.height/2);
+
+          console.log("cenw = " + cenW);
+          console.log("cenh = " + cenH);
+
+          buildingbox.fillStyle = "grey";
+          buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*11, (cenH/16)*20);
+
+          for(var x=1; x<11; x++){
+            for(var y=1; y<16; y++){
+              window(canvasN,x,y);
+              y++;
+            }
+            x++;
+          }
+        }
+        function man(canvasN,x,y) {
+          let can = document.getElementById(canvasN);
+          let torso = can.getContext("2d");
+          let leftarm = can.getContext("2d");
+          let rightarm = can.getContext("2d");
+          let leftleg = can.getContext("2d");
+          let rightleg = can.getContext("2d");
+          let head = can.getContext("2d");
+
+          let cenW = (can.width/2);
+          let cenH = (can.height/2);
+
+          console.log("cenw = " + cenW);
+          console.log("cenh = " + cenH);
+
+          torso.beginPath();
+          torso.moveTo((cenW/16)*(16+x),(cenH/16)*(15-y));
+          torso.lineTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+          torso.stroke();
+
+          leftarm.beginPath();
+          leftarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
+          leftarm.lineTo((cenW/16)*(15+x),(cenH/16)*(15-y));
+          leftarm.stroke();
+
+          rightarm.beginPath();
+          rightarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
+          rightarm.lineTo((cenW/16)*(17+x),(cenH/16)*(15-y));
+          rightarm.stroke();
+
+          leftleg.beginPath();
+          leftleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+          leftleg.lineTo((cenW/16)*(15+x),(cenH/16)*(18-y));
+          leftleg.stroke();
+
+          rightleg.beginPath();
+          rightleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+          rightleg.lineTo((cenW/16)*(17+x),(cenH/16)*(18-y));
+          rightleg.stroke();
+
+          head.beginPath();
+          head.arc((cenW/16)*(16+x), (cenH/16)*(14-y), cenW/16, 0, 2 * Math.PI);
+          head.stroke();
+        }
+
+        function skybackground(canvasN) {
+          let can = document.getElementById(canvasN);
+          let sky = can.getContext("2d");
+
+          let cenW = (can.width / 2);
+          let cenH = (can.height / 2);
+
+          let gradient = sky.createLinearGradient(0, 0, 0, can.height);
+          gradient.addColorStop(0, "#4fa9d6");
+          gradient.addColorStop(1, "white");
+
+          sky.beginPath();
+          sky.fillStyle = gradient;
+          sky.fillRect(0, 0, can.width, (can.height / 32) * 24);
+        }
+      </script>
   </body>
 </html>
