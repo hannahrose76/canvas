@@ -12,6 +12,11 @@
         }
       </style>
       <script>
+        let name = "canvas"
+        skybackground(name);
+        building(name);
+        man(name,-8,-5);
+
         function building(canvasN){
           function window(canvasN, x, y){
             let can = document.getElementById(canvasN);
