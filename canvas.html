@@ -1,117 +1,118 @@
-<html>
-  <head>
-    <title> Canvas </title>
-  </head>
+<html><!--sets as html-->
+  <head><!--sets as header-->
+    <title> Canvas </title><!--sets page title-->
+  </head><!--end of header-->
 
-  <body>
-    <canvas id="canvas" width="600" height="600">
-      <style>
+  <body><!--start of body-->
+    <canvas id="canvas" width="600" height="600"><!--defines canvas-->
+      <style>/*start of style*/
         canvas {
-          border: 1px solid red;
-          z-index: 1;
+          border: 1px solid red; /*border*/
         }
-      </style>
-      <script>
-        let name = "canvas"
-        skybackground(name);
-        building(name);
-        man(name,-8,-5);
-        man(name,6.5,-5);
-        man(name,11,-5);
+      </style><!--end of style-->
+      <script>//JavaScript start
+        let name = "canvas" //declares canvas name
+        skybackground(name);//calls skybackground function
+        building(name);//calls building function
+        man(name,-8,-5);//creates a man
+        man(name,6.5,-5);//creates another man
+        man(name,11,-5);//creates another man
 
 
-        function building(canvasN){
-          function window(canvasN, x, y){
-            let can = document.getElementById(canvasN);
-            let windows = can.getContext("2d");
+        function building(canvasN){//function for making a building
+          function window(canvasN, x, y){//function for window
+            let can = document.getElementById(canvasN);//declare canvas obj
+            let windows = can.getContext("2d");//declare painter obj
 
-            let cenW=(can.width/2);
-            let cenH=(can.height/2);
+            let cenW=(can.width/2);//halves canvas width
+            let cenH=(can.height/2);//halves canvas height
 
-            windows.fillStyle = "lightblue";
-            windows.fillRect((cenW/16)*(10+x), (cenH/16)*(3+y), (cenW/16), (cenH/16));
+            windows.fillStyle = "lightblue";//sets colour
+            windows.fillRect((cenW/16)*(10+x), (cenH/16)*(3+y), (cenW/16), (cenH/16));//creates rect
           }
 
-          let can = document.getElementById(canvasN);
-          let buildingbox = can.getContext("2d");
+          let can = document.getElementById(canvasN);//declare canvas obj
+          let buildingbox = can.getContext("2d");//declare painter obj
 
-          let cenW=(can.width/2);
-          let cenH=(can.height/2);
+          let cenW=(can.width/2);//halves canvas width
+          let cenH=(can.height/2);//halves canvas height
 
-          console.log("cenw = " + cenW);
-          console.log("cenh = " + cenH);
+          //console.log("cenw = " + cenW);
+          //console.log("cenh = " + cenH);
 
-          buildingbox.fillStyle = "grey";
-          buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*11, (cenH/16)*20);
+          buildingbox.fillStyle = "grey";//sets colour
+          buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*11, (cenH/16)*20);//creates rect
 
-          for(var x=1; x<11; x++){
-            for(var y=1; y<16; y++){
-              window(canvasN,x,y);
-              y++;
+          for(var x=1; x<11; x++){//for loop
+            for(var y=1; y<16; y++){//nested for loop
+              window(canvasN,x,y);//calls window function using x and y
+              y++;//add 1 to y
             }
-            x++;
+            x++;//add 1 to x
           }
         }
-        function man(canvasN,x,y) {
-          let can = document.getElementById(canvasN);
-          let torso = can.getContext("2d");
+        function man(canvasN,x,y) {//declares man function
+          let can = document.getElementById(canvasN);//declares canvas obj
+          let torso = can.getContext("2d");//painter declarations
           let leftarm = can.getContext("2d");
           let rightarm = can.getContext("2d");
           let leftleg = can.getContext("2d");
           let rightleg = can.getContext("2d");
-          let head = can.getContext("2d");
+          let head = can.getContext("2d");//end of painter declarations
 
-          let cenW = (can.width/2);
-          let cenH = (can.height/2);
+          let cenW = (can.width/2);//halves canvas width
+          let cenH = (can.height/2);//halves canvas height
 
-          console.log("cenw = " + cenW);
-          console.log("cenh = " + cenH);
-
-          torso.beginPath();
-          torso.moveTo((cenW/16)*(16+x),(cenH/16)*(15-y));
-          torso.lineTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+          //console.log("cenw = " + cenW);
+          //console.log("cenh = " + cenH);
+          //stickman body
+          torso.beginPath();//begin path
+          torso.moveTo((cenW/16)*(16+x),(cenH/16)*(15-y));//draws line
+          torso.lineTo((cenW/16)*(16+x),(cenH/16)*(17-y));//draws line
           torso.stroke();
 
-          leftarm.beginPath();
-          leftarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
-          leftarm.lineTo((cenW/16)*(15+x),(cenH/16)*(15-y));
+          //stickman leftarm
+          leftarm.beginPath();//begin path
+          leftarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));//draws line
+          leftarm.lineTo((cenW/16)*(15+x),(cenH/16)*(15-y));//draws line
           leftarm.stroke();
 
-          rightarm.beginPath();
-          rightarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
-          rightarm.lineTo((cenW/16)*(17+x),(cenH/16)*(15-y));
+          //stickman rightarm
+          rightarm.beginPath();//begin path
+          rightarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));//draws line
+          rightarm.lineTo((cenW/16)*(17+x),(cenH/16)*(15-y));//draws line
           rightarm.stroke();
 
-          leftleg.beginPath();
-          leftleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
-          leftleg.lineTo((cenW/16)*(15+x),(cenH/16)*(18-y));
+          //stickman leftleg
+          leftleg.beginPath();//begin path
+          leftleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));//draws line
+          leftleg.lineTo((cenW/16)*(15+x),(cenH/16)*(18-y));//draws line
           leftleg.stroke();
 
-          rightleg.beginPath();
-          rightleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
-          rightleg.lineTo((cenW/16)*(17+x),(cenH/16)*(18-y));
+          //stickman rightleg
+          rightleg.beginPath();//begin path
+          rightleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));//draws line
+          rightleg.lineTo((cenW/16)*(17+x),(cenH/16)*(18-y));//draws line
           rightleg.stroke();
 
-          head.beginPath();
-          head.arc((cenW/16)*(16+x), (cenH/16)*(14-y), cenW/16, 0, 2 * Math.PI);
+          //stickman head
+          head.beginPath();//begin path
+          head.arc((cenW/16)*(16+x), (cenH/16)*(14-y), cenW/16, 0, 2 * Math.PI);//draws circle
           head.stroke();
         }
 
-        function skybackground(canvasN) {
-          let can = document.getElementById(canvasN);
-          let sky = can.getContext("2d");
+        function skybackground(canvasN) {//define sky function
+          let can = document.getElementById(canvasN);//declare canvas obj
+          let sky = can.getContext("2d");//declare painter obj
 
-          let cenW = (can.width / 2);
-          let cenH = (can.height / 2);
+          let gradient = sky.createLinearGradient(0, 0, 0, can.height);//create gradient
+          gradient.addColorStop(0, "#4fa9d6");//blue
+          gradient.addColorStop(1, "white");//white
 
-          let gradient = sky.createLinearGradient(0, 0, 0, can.height);
-          gradient.addColorStop(0, "#4fa9d6");
-          gradient.addColorStop(1, "white");
-
-          sky.beginPath();
-          sky.fillStyle = gradient;
+          sky.beginPath();//begin path
+          sky.fillStyle = gradient;//fill
           sky.fillRect(0, 0, can.width, (can.height / 32) * 24);
         }
       </script>
   </body>
-</html>
+</html><!--end html-->
