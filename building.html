@@ -11,17 +11,37 @@
                 let name="canvas";
                 building(name);
                 function building(canvasN){
+                    function window(canvasN, x, y){
+                      let can = document.getElementById(canvasN);
+                      let windows = can.getContext("2d");
+
+                      let cenW=(can.width/2);
+                      let cenH=(can.height/2);
+
+                      windows.fillStyle = "lightblue";
+                      windows.fillRect((cenW/16)*(10+x), (cenH/16)*(3+y), (cenW/16), (cenH/16));
+                    }
+
                     let can = document.getElementById(canvasN);
                     let buildingbox = can.getContext("2d");
 
-                    let cenW=(can.width/2)
-                    let cenH=(can.height/2)
+                    let cenW=(can.width/2);
+                    let cenH=(can.height/2);
 
-                    console.log("cenw = " + cenW)
-                    console.log("cenh = " + cenH)
+                    console.log("cenw = " + cenW);
+                    console.log("cenh = " + cenH);
 
-                    buildingbox.fillStyle = "grey"
-                    buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*12, (cenH/16)*20);                }
+                    buildingbox.fillStyle = "grey";
+                    buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*11, (cenH/16)*20);
+
+                    for(var x=1; x<11; x++){
+                      for(var y=1; y<16; y++){
+                        window(canvasN,x,y);
+                        y++;
+                      }
+                      x++;
+                    }
+                  }
             </script>
         </canvas>
     </body>
