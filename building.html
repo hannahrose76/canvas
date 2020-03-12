@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <canvas id="canvas" width="600" height="600">
+            <style>
+                canvas{
+                  border: 1px solid red;
+                  z-index: 1;
+                }
+            </style>
+            <script>
+                let name="canvas";
+                building(name);
+                function building(canvasN){
+                    let can = document.getElementById(canvasN);
+                    let buildingbox = can.getContext("2d");
+
+                    let cenW=(can.width/2)
+                    let cenH=(can.height/2)
+
+                    console.log("cenw = " + cenW)
+                    console.log("cenh = " + cenH)
+
+                    buildingbox.fillStyle = "grey"
+                    buildingbox.fillRect((cenW/16)*10, (cenH/16)*3, (cenW/16)*12, (cenH/16)*20);                }
+            </script>
+        </canvas>
+    </body>
+</html>
