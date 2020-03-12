@@ -1,0 +1,62 @@
+<html>
+
+<body>
+  <canvas id="canvas" width="600" height="600">
+    <style>
+      canvas {
+        border: 1px solid red;
+        z-index: 1;
+      }
+    </style>
+    <script>
+      let name = "canvas";
+      man(name,0,8);
+      function man(canvasN,x,y) {
+        let can = document.getElementById(canvasN);
+        let torso = can.getContext("2d");
+        let leftarm = can.getContext("2d");
+        let rightarm = can.getContext("2d");
+        let leftleg = can.getContext("2d");
+        let rightleg = can.getContext("2d");
+        let head = can.getContext("2d");
+
+        let cenW = (can.width/2);
+        let cenH = (can.height/2);
+
+        console.log("cenw = " + cenW);
+        console.log("cenh = " + cenH);
+
+        torso.beginPath();
+        torso.moveTo((cenW/16)*(16+x),(cenH/16)*(15-y));
+        torso.lineTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+        torso.stroke();
+
+        leftarm.beginPath();
+        leftarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
+        leftarm.lineTo((cenW/16)*(15+x),(cenH/16)*(15-y));
+        leftarm.stroke();
+
+        rightarm.beginPath();
+        rightarm.moveTo((cenW/16)*(16+x),(cenH/16)*(16-y));
+        rightarm.lineTo((cenW/16)*(17+x),(cenH/16)*(15-y));
+        rightarm.stroke();
+
+        leftleg.beginPath();
+        leftleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+        leftleg.lineTo((cenW/16)*(15+x),(cenH/16)*(18-y));
+        leftleg.stroke();
+
+        rightleg.beginPath();
+        rightleg.moveTo((cenW/16)*(16+x),(cenH/16)*(17-y));
+        rightleg.lineTo((cenW/16)*(17+x),(cenH/16)*(18-y));
+        rightleg.stroke();
+
+        head.beginPath();
+        head.arc((cenW/16)*(16+x), (cenH/16)*(14-y), cenW/16, 0, 2 * Math.PI);
+        head.stroke();
+      }
+    </script>
+  </canvas>
+</body>
+
+</html>
