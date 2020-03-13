@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trees</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+<script>
+
+
+window.onload=function(){//runs javascript after page loads
+    
+    let c = document.getElementById("canvas");//canvas object
+    console.log(c);
+    let tree = c.getContext("2d");  // paint tool
+    let sun = c.getContext("2d");   //paint tool
+    let road = c.getContext("2d"); //paint tool
+     
+     canvas.width = window.innerWidth; // width to be equal to screen width
+     canvas.height = window.innerHeight;// height to be equal to screen height     
+     //Tree//
+     tree.beginPath();//begins drawing
+     tree.moveTo(220, 200);//starting point
+     tree.shadowBlur=5;//thickness of shadow
+     tree.shadowOffsetX=-8;//position of shadow
+     tree.shadowColor = "gray";//shadow colour
+     tree.bezierCurveTo(230, 200, 250, 450, 160, 500);//begin curve for leaves two points
+     tree.quadraticCurveTo(220, 480, 250, 470);//curve
+     tree.quadraticCurveTo(260,500,255,550);//curve
+     tree.quadraticCurveTo(280,525,300,460);//curve
+     tree.quadraticCurveTo(335,550,340,550);//curve
+     tree.quadraticCurveTo(340,555,350,480);//curve
+     tree.quadraticCurveTo(350,480,410,500);//curve
+     tree.bezierCurveTo(400, 470, 320, 470, 390, 150);//curve with two points
+     tree.quadraticCurveTo(320,170,320,170);//curve
+     tree.quadraticCurveTo(250,180,220,150);//curve
+     tree.closePath();//ends drawing
+     tree.fillStyle = '#C19A6B';//fill colour
+     tree.fill();//fills the object
+
+    
+     
+     tree.beginPath();//begins drawing
+     tree.moveTo(170, 80);//starting point
+     tree.bezierCurveTo(10, 310, 450, 180, 230, 180);//starts curves for trees body
+     tree.bezierCurveTo(260, 250, 320, 260, 360, 220);//curve
+     tree.bezierCurveTo(490, 250, 480, 180, 470, 130);//curve
+     tree.bezierCurveTo(550, -30, 370, 20, 360, 60);//curve
+     tree.bezierCurveTo(330, -20, 260, 20, 250, 50);//curve
+     tree.bezierCurveTo(170, 0, 70, 20, 170, 150);//curve
+     tree.fillStyle = '#98Fb98';//fill colour
+     tree.fill();//fills the object
+     tree.shadowColor = 'rgba(0,0,0,0)';
+
+
+    //sun
+     sun.beginPath();//begins drawing
+     sun.arc(1700, 1, 200, 0, 2 * Math.PI);//creates circle
+     sun.lineWidth = "3";//line widht of object
+     sun.fillStyle = "#F0BA70";//fill colour
+     sun.fill();//fills the object
+     sun.closePath();//ends drawing
+
+    //road
+     road.beginPath();//begins drawing
+     road.fillStyle = "#A9A9A9";//fill colour
+     road.fillRect(0, 600, canvas.width, canvas.height);//fills rectangle
+     road.strokeRect(0, 600, canvas.width, canvas.height);//draws rectangle
+     road.closePath();//ends drawing
+     road.beginPath();//begins drawing
+     road.fillStyle = 'yellow';//fill colour
+     road.fillRect(80,710, 100, 30);// fills rectangle
+     road.strokeRect(80,710, 100, 30);//draws rectangle
+     road.fillRect(280,710, 100, 30);//fill rectangle
+     road.strokeRect(280,710, 100, 30);//draws rectangle
+     road.fillRect(480,710, 100, 30);//fill rectangle
+     road.strokeRect(480,710, 100, 30);//draws rectangle
+     road.fillRect(680,710, 100, 30);//fill rectangle
+     road.strokeRect(680,710, 100, 30);//draws rectangle
+     road.fillRect(880,710, 100, 30);//fill rectangle
+     road.strokeRect(880,710, 100, 30);//draws rectangle
+     road.fillRect(1080,710, 100, 30);//fill rectangle
+     road.strokeRect(1080,710, 100, 30);//draws rectangle
+     road.fillRect(1280,710, 100, 30);//fill rectangle
+     road.strokeRect(1280,710, 100, 30);//draws rectangle
+     road.fillRect(1480,710, 100, 30);//fill rectangle
+     road.strokeRect(1480,710, 100, 30);//draws rectangle
+     road.closePath();//ends drawing
+    
+    }
+
+</script>
+
+
+
+</body>
+
+
+
+
+</html>
+
