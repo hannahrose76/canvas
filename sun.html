@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trees</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+<script>
+window.onload=function(){//runs javascript after page loads
+    canvas.width = window.innerWidth;// width to be equal to screen width
+    canvas.height = window.innerHeight;// height to be equal to screen height
+    let c = document.getElementById("canvas");//canvas object
+    console.log(c);
+    let sun = c.getContext("2d");// paint tool
+
+
+    
+
+ sun.beginPath();//begins drawing
+ sun.arc(1700, 1, 200, 0, 2 * Math.PI);//creates circle
+ sun.lineWidth = "3";//line widht of object
+ sun.fillStyle = "#F0BA70";//fill colour
+ sun.fill();//fills the object
+ sun.closePath();//ends drawing
+}
+</script>
+
+
+
+</body>
+
+
+
+
+</html>
+

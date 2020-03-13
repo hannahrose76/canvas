@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trees</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+<script>
+window.onload=function(){ //runs javascript after page loads
+    canvas.width = window.innerWidth;// width to be equal to screen width
+    canvas.height = window.innerHeight;// height to be equal to screen height
+    let c = document.getElementById("canvas");
+    console.log(c);
+    let road = c.getContext("2d");
+
+         road.beginPath();//begins drawing
+         road.fillStyle = "#A9A9A9";//fill colour
+         road.fillRect(0, 600, canvas.width, canvas.height);//fills rectangle
+         road.strokeRect(0, 600, canvas.width, canvas.height);//draws rectangle
+         road.closePath();//ends drawing
+         
+         road.beginPath();//begins drawing
+         road.fillStyle = 'yellow';//fill colour
+         road.fillRect(80,710, 100, 30);// fills rectangle
+         road.strokeRect(80,710, 100, 30);//draws rectangle
+         road.fillRect(280,710, 100, 30);//fill rectangle
+         road.strokeRect(280,710, 100, 30);//draws rectangle
+         road.fillRect(480,710, 100, 30);//fill rectangle
+         road.strokeRect(480,710, 100, 30);//draws rectangle
+         road.fillRect(680,710, 100, 30);//fill rectangle
+         road.strokeRect(680,710, 100, 30);//draws rectangle
+         road.fillRect(880,710, 100, 30);//fill rectangle
+         road.strokeRect(880,710, 100, 30);//draws rectangle
+         road.fillRect(1080,710, 100, 30);//fill rectangle
+         road.strokeRect(1080,710, 100, 30);//draws rectangle
+         road.fillRect(1280,710, 100, 30);//fill rectangle
+         road.strokeRect(1280,710, 100, 30);//draws rectangle
+         road.fillRect(1480,710, 100, 30);//fill rectangle
+         road.strokeRect(1480,710, 100, 30);//draws rectangle
+         road.closePath();//ends drawing
+}
+
+</script>
+
+
+
+</body>
+
+
+
+
+</html>
+
