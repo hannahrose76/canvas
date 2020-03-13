@@ -1,0 +1,9 @@
+html, body {
+    margin: 0 !important;  /*important overrides any rules before it*/
+    padding: 0 !important; /*important overrides any rules before it*/
+    /*to remove white space at the top of the page */
+}
+
+
+
+
