@@ -9,20 +9,23 @@
 
     <canvas id="canvas"></canvas>
 <script>
+
+
 window.onload=function(){//runs javascript after page loads
     
     let c = document.getElementById("canvas");//canvas object
     console.log(c);
-    let tree = c.getContext("2d");  // pain tool
+    let tree = c.getContext("2d");  // paint tool
      
-     
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
      
      //Tree//
      tree.beginPath();//begins drawing
      tree.moveTo(220, 200);//starting point
      tree.shadowBlur=5;//thickness of shadow
-     tree.shadowOffsetX=-2;//position of shadow
-     tree.shadowColor = "black";//shadow colour
+     tree.shadowOffsetX=-8;//position of shadow
+     tree.shadowColor = "gray";//shadow colour
      tree.bezierCurveTo(230, 200, 250, 450, 160, 500);//begin curve for leaves two points
      tree.quadraticCurveTo(220, 480, 250, 470);//curve
      tree.quadraticCurveTo(260,500,255,550);//curve
@@ -38,8 +41,9 @@ window.onload=function(){//runs javascript after page loads
      tree.fill();//fills the object
 
     
-     tree.beginPath();
-     tree.moveTo(170, 80);
+     //ctx.stroke();    
+     tree.beginPath();//begins drawing
+     tree.moveTo(170, 80);//starting point
      tree.bezierCurveTo(10, 310, 450, 180, 230, 180);//starts curves for trees body
      tree.bezierCurveTo(260, 250, 320, 260, 360, 220);//curve
      tree.bezierCurveTo(490, 250, 480, 180, 470, 130);//curve
@@ -48,6 +52,7 @@ window.onload=function(){//runs javascript after page loads
      tree.bezierCurveTo(170, 0, 70, 20, 170, 150);//curve
      tree.fillStyle = '#98Fb98';//fill colour
      tree.fill();//fills the object
+
 }
 
 </script>
